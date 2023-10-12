@@ -143,7 +143,7 @@ y/n> y
 ```
 
 1. Press `Enter` until you get to the `root_folder_id`. Copy your folder ID from the pCloud folder which will serve as root for the application.
-```
+```text
 OAuth Access Token as a JSON blob.
 Enter a string value. Press Enter for the default ("").
 token> 
