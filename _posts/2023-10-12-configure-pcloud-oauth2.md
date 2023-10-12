@@ -233,5 +233,5 @@ https://my.pcloud.com/#page=settings&settings=tab-apps
 ![Selection_022.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_022.png)
 
 ## References
-https://docs.pcloud.com/methods/oauth_2.0/
-https://pypi.org/project/pcloud/
+- https://docs.pcloud.com/methods/oauth_2.0/
+- https://pypi.org/project/pcloud/
