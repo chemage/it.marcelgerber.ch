@@ -1,8 +1,12 @@
 ---
-
+layout: page
 ---
 
-Welcome to {{ title }}. 
+# {{ site.title }}
+
+## Commenting Guidelines
+
+Welcome to {{ site.title }}. 
 
 I will do my best to avoid abuse, spam and trolls. 
 
