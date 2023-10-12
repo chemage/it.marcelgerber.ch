@@ -9,15 +9,15 @@ tags: automation backup pCloud oauth2
 1. Open the OAuth2 app page:
 https://docs.pcloud.com/my_apps/
 2. Create a new app.
-![Selection_013.png](/assets/images/blog/2023/10/12/Selection_013.png)
+![Selection_013.png](/assets/img/blog/2023/10/12/Selection_013.png)
 3. Open the settings.
-![Selection_014.png](/assets/images/blog/2023/10/12/Selection_014.png)
+![Selection_014.png](/assets/img/blog/2023/10/12/Selection_014.png)
 4. Configure the redirect URI.
-![Selection_017.png](/assets/images/blog/2023/10/12/Selection_017.png)
+![Selection_017.png](/assets/img/blog/2023/10/12/Selection_017.png)
 5. Create the root folder in my.pcloud.com.
-![Selection_015.png](/assets/images/blog/2023/10/12/Selection_015.png)
+![Selection_015.png](/assets/img/blog/2023/10/12/Selection_015.png)
 6. Copy new folder's ID from the URL.
-![Selection_018.png](/assets/images/blog/2023/10/12/Selection_018.png)
+![Selection_018.png](/assets/img/blog/2023/10/12/Selection_018.png)
 
 ## Configure rclone
 On a machine with a web browser, install rclone and launch `rclone config`.
@@ -199,13 +199,13 @@ Waiting for code...
 ```
 
 9. Your default browser should open, connect to your account.
-![Selection_019.png](https://marcels-it.ghost.io/content/images/2023/10/Selection_019.png)
+![Selection_019.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_019.png)
 
 10. Allow the app to access.
-![Selection_020.png](https://marcels-it.ghost.io/content/images/2023/10/Selection_020.png)
+![Selection_020.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_020.png)
 
 11. The redirection should show you a simple success page.
-![Selection_021.png](https://marcels-it.ghost.io/content/images/2023/10/Selection_021.png)
+![Selection_021.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_021.png)
 
 12. Close the browser window and return to rclone config.
 ```
@@ -230,7 +230,7 @@ y/e/d> y
 https://my.pcloud.com/#page=settings&settings=tab-apps
 
 2. In the __Linked Apps__ section you will find your application and you can see it's limited to a specific folder.
-![Selection_022.png](https://marcels-it.ghost.io/content/images/2023/10/Selection_022.png)
+![Selection_022.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_022.png)
 
 ## References
 https://docs.pcloud.com/methods/oauth_2.0/
