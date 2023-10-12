@@ -9,9 +9,9 @@ tags: automation backup pCloud oauth2
 1. Open the OAuth2 app page:
 https://docs.pcloud.com/my_apps/
 1. Create a new app.
-![Selection_013.png](c/2023/10/12/Selection_013.png)
+![Selection_013.png](/assets/img/blog/2023/10/12/Selection_013.png)
 1. Open the settings.
-![Selection_014.png](§/2023/10/12/Selection_014.png)
+![Selection_014.png](/assets/img/blog/2023/10/12/Selection_014.png)
 1. Configure the redirect URI.
 ![Selection_017.png](/assets/img/blog/2023/10/12/Selection_017.png)
 1. Create the root folder in my.pcloud.com.
