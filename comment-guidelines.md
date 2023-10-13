@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Comments Guidelines
 ---
 
 # {{ site.title }}

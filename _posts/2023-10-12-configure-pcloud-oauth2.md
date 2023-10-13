@@ -8,15 +8,15 @@ tags: automation backup pCloud oauth2
 ## Configure pCloud OAuth2
 1. Open the OAuth2 app page:
 https://docs.pcloud.com/my_apps/
-2. Create a new app.
+1. Create a new app.
 ![Selection_013.png](/assets/img/blog/2023/10/12/Selection_013.png)
-3. Open the settings.
+1. Open the settings.
 ![Selection_014.png](/assets/img/blog/2023/10/12/Selection_014.png)
-4. Configure the redirect URI.
+1. Configure the redirect URI.
 ![Selection_017.png](/assets/img/blog/2023/10/12/Selection_017.png)
-5. Create the root folder in my.pcloud.com.
+1. Create the root folder in my.pcloud.com.
 ![Selection_015.png](/assets/img/blog/2023/10/12/Selection_015.png)
-6. Copy new folder's ID from the URL.
+1. Copy new folder's ID from the URL.
 ![Selection_018.png](/assets/img/blog/2023/10/12/Selection_018.png)
 
 ## Configure rclone
@@ -34,12 +34,12 @@ q) Quit config
 e/n/d/r/c/s/q> n
 ```
 
-2. Name the new remote.
+1. Name the new remote.
 ```
 name> pcloud_backup
 ```
 
-3. Select 25 for pCloud storage.
+1. Select 25 for pCloud storage.
 ```
 Type of storage to configure.
 Enter a string value. Press Enter for the default ("").
@@ -118,7 +118,7 @@ Storage> 25
 ** See help for pcloud backend at: https://rclone.org/pcloud/ **
 ```
 
-4. Copy the client ID of your new pCloud app.
+1. Copy the client ID of your new pCloud app.
 ```
 Auth Client Id
 Leave blank normally.
@@ -126,7 +126,7 @@ Enter a string value. Press Enter for the default ("").
 client_id> zQg0smNw8tp
 ```
 
-5. Copy the client secret of your new pCloud app.
+1. Copy the client secret of your new pCloud app.
 ```
 OAuth Client Secret
 Leave blank normally.
@@ -134,7 +134,7 @@ Enter a string value. Press Enter for the default ("").
 client_secret> 2OSmU2xW6gYaLLCaPPIUg5T5EvX7
 ```
 
-6. Edit the advanced settings.
+1. Edit the advanced settings.
 ```
 Edit advanced config? (y/n)
 y) Yes
@@ -142,8 +142,8 @@ n) No (default)
 y/n> y
 ```
 
-7. Press `Enter` until you get to the `root_folder_id`. Copy your folder ID from the pCloud folder which will serve as root for the application.
-```
+1. Press `Enter` until you get to the `root_folder_id`. Copy your folder ID from the pCloud folder which will serve as root for the application.
+```text
 OAuth Access Token as a JSON blob.
 Enter a string value. Press Enter for the default ("").
 token> 
@@ -156,7 +156,7 @@ Leave blank to use the provider defaults.
 Enter a string value. Press Enter for the default ("").
 token_url> 
 This sets the encoding for the backend.
-
+-
 See: the [encoding section in the overview](/overview/#encoding) for more info.
 Enter a encoder.MultiEncoder value. Press Enter for the default ("Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot").
 encoding> 
@@ -165,14 +165,14 @@ Enter a string value. Press Enter for the default ("d0").
 root_folder_id> 19066333043
 ```
 
-7. Choose your region.
+1. Choose your region.
 ```
 Hostname to connect to.
-
+-
 This is normally set when rclone initially does the oauth connection,
 however you will need to set it by hand if you are using remote config
 with rclone authorize.
-
+-
 Enter a string value. Press Enter for the default ("api.pcloud.com").
 Choose a number from below, or type in your own value
  1 / Original/US region
@@ -180,10 +180,9 @@ Choose a number from below, or type in your own value
  2 / EU region
    \ "eapi.pcloud.com"
 hostname> 1
-
 ```
 
-8. On the pCloud API, set the redirect URI to `http://localhost:53682/`.
+1. On the pCloud API, set the redirect URI to `http://localhost:53682/`.
 ```
 Remote config
 Make sure your Redirect URL is set to "http://localhost:53682/" in your custom config.
@@ -198,16 +197,16 @@ Log in and authorize rclone for access
 Waiting for code...
 ```
 
-9. Your default browser should open, connect to your account.
-![Selection_019.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_019.png)
+1. Your default browser should open, connect to your account.
+![Selection_019.png](/assets/img/blog/2023/10/12/Selection_019.png)
 
-10. Allow the app to access.
-![Selection_020.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_020.png)
+1. Allow the app to access.
+![Selection_020.png](/assets/img/blog/2023/10/12/Selection_020.png)
 
-11. The redirection should show you a simple success page.
-![Selection_021.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_021.png)
+1. The redirection should show you a simple success page.
+![Selection_021.png](/assets/img/blog/2023/10/12/Selection_021.png)
 
-12. Close the browser window and return to rclone config.
+1. Close the browser window and return to rclone config.
 ```
 Got code
 --------------------
@@ -229,9 +228,9 @@ y/e/d> y
 1. Open pCloud "Settings -> Linked Accounts".
 https://my.pcloud.com/#page=settings&settings=tab-apps
 
-2. In the __Linked Apps__ section you will find your application and you can see it's limited to a specific folder.
-![Selection_022.png](https://marcels-it.ghost.io/content/img/2023/10/Selection_022.png)
+1. In the __Linked Apps__ section you will find your application and you can see it's limited to a specific folder.
+![Selection_022.png](/assets/img/blog/2023/10/12/Selection_022.png)
 
 ## References
-- https://docs.pcloud.com/methods/oauth_2.0/
-- https://pypi.org/project/pcloud/
+- [pCloud OAuth2 documentation](https://docs.pcloud.com/methods/oauth_2.0/)
+- [Python Pi pCloud package](https://pypi.org/project/pcloud/)
