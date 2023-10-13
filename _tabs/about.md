@@ -13,5 +13,5 @@ After about ten years of experience as a Windows systems engineer (including a f
 For hobbies, Marcel loves a quiet evening with a book or netflixing, a round of craft beers with friends, traveling to remote places, scuba diving, motorcycling, photography, mountain hiking and more.
 
 ![Albania 2023](/assets/img/about/albania-2023.jpg)<br>
-"Fier" means proud in French. So I was being proud in Albania on my recent motorcycle trip through the Balkans.
+"Fier" means proud in French. So I was being proud in Albania on my recent motorcycle trip through the Balkans. It's more a joke than anything.
 
