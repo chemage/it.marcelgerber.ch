@@ -1,0 +1,17 @@
+<ul class="post-list">
+  {%- for post in posts %}
+  <li class="card">
+    <h2 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <p class="card-excerpt">{{ post.templateContent | excerpt(220) }}</p>
+    <p class="meta">
+      <span>{% icon "calendar" %}<time datetime="{{ post.date | dateISO }}">{{ post.date | dateShort }}</time></span>
+      {%- if post.data.categories %}
+      <span>{% icon "folder" %}{% for c in post.data.categories %}<a href="/categories/{{ c | slugify }}/">{{ c }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
+      {%- endif %}
+      {%- if post.data.tags %}
+      <span>{% icon "tag" %}{% for t in post.data.tags %}<a class="tag" href="/tags/{{ t | slugify }}/">{{ t }}</a>{% endfor %}</span>
+      {%- endif %}
+    </p>
+  </li>
+  {%- endfor %}
+</ul>

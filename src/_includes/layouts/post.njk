@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+---
+{% set updated = page.inputPath | lastModified %}
+<div class="post-grid">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ title }}</h1>
+      <p class="meta">
+        <span>{% icon "calendar" %}<time datetime="{{ page.date | dateISO }}">{{ page.date | dateShort }}</time></span>
+        {%- if updated %}<span>Updated <time datetime="{{ updated | dateISO }}">{{ updated | dateShort }}</time></span>{% endif %}
+        <span>{% icon "clock" %}{{ content | readingTime }} min read</span>
+        {%- if categories %}
+        <span>{% icon "folder" %}{% for c in categories %}<a href="/categories/{{ c | slugify }}/">{{ c }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
+        {%- endif %}
+      </p>
+    </header>
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+    <footer class="post-footer">
+      {%- if tags %}
+      <p class="meta">{% icon "tag" %}{% for t in tags %}<a class="tag" href="/tags/{{ t | slugify }}/">{{ t }}</a>{% endfor %}</p>
+      {%- endif %}
+      <p class="share meta">Share
+        {%- for s in share %}
+        <a href="{{ s.link | replace('TITLE', title | urlencode) | replace('URL', (site.url + page.url) | urlencode) }}" aria-label="Share on {{ s.name }}" rel="noopener" target="_blank">{% icon s.icon %}</a>
+        {%- endfor %}
+      </p>
+    </footer>
+    {% if comments and site.comments.provider == "disqus" %}
+    <section class="comments" aria-label="Comments">
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = {{ (site.url + page.url) | jsString | safe }};
+          this.page.identifier = {{ page.url | jsString | safe }};
+        };
+        (function () {
+          var thread = document.getElementById("disqus_thread");
+          function load() {
+            var s = document.createElement("script");
+            s.src = "https://{{ site.comments.disqusShortname }}.disqus.com/embed.js";
+            s.setAttribute("data-timestamp", +new Date());
+            document.head.appendChild(s);
+          }
+          if ("IntersectionObserver" in window) {
+            new IntersectionObserver(function (entries, obs) {
+              if (entries[0].isIntersecting) { obs.disconnect(); load(); }
+            }, { rootMargin: "300px" }).observe(thread);
+          } else { load(); }
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    {% endif %}
+  </article>
+  {% if toc %}
+  {%- set tocHtml = content | toc -%}
+  {%- if tocHtml.split("<li").length > 2 %}
+  <aside class="toc-panel" aria-label="Table of contents">
+    <p class="toc-title">Contents</p>
+    {{ tocHtml | safe }}
+  </aside>
+  {%- endif %}
+  {% endif %}
+</div>

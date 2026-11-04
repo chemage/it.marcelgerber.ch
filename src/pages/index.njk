@@ -1,0 +1,9 @@
+---
+layout: layouts/home.njk
+pagination:
+  data: collections.blogPosts
+  size: 10
+  alias: posts
+permalink: "{% if pagination.pageNumber == 0 %}/{% else %}/page{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyExcludeFromCollections: true
+---

@@ -1,0 +1,12 @@
+---
+layout: layouts/taxonomy.njk
+kind: Tag
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: entry
+permalink: "/tags/{{ entry.name | slugify }}/"
+eleventyComputed:
+  title: "{{ entry.name }}"
+eleventyExcludeFromCollections: false
+---

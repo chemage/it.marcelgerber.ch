@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+{# One page per category or tag. Expects `entry` and `kind` from pagination. #}
+<article class="page">
+  <h1 class="page-title">{{ kind }}: {{ entry.name }} <small>{{ entry.posts.length }}</small></h1>
+  {% set posts = entry.posts %}
+  {% include "partials/post-list.njk" %}
+</article>

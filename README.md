@@ -1,56 +1,45 @@
-# Chirpy Starter
+# Marcel's IT blog
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+Source of <https://it.marcelgerber.ch>, built with [Eleventy](https://www.11ty.dev/) and deployed to GitHub Pages.
+(It used to be a Jekyll/Chirpy site; URLs, feed and comments were kept.)
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+## Develop
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
-
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
-
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+```sh
+npm install
+npm start        # live-reloading dev server on http://localhost:8080
+npm run build    # production build into _site/
+npm run check    # fail on broken internal links (run after build)
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+Needs Node.js 20 or newer (CI uses 22).
 
-## Prerequisites
+## Write a post
 
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of
-the basic environment. [Git](https://git-scm.com/) also needs to be installed.
+Add `src/posts/YYYY-MM-DD-some-title.md`:
 
-## Installation
-
-Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it
-`USERNAME.github.io`, where `USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
-```console
-$ bundle
+```md
+---
+title: Some title
+date: 2026-01-31T20:00:00+01:00
+categories: [howto]
+tags: [automation, backup]
+---
 ```
 
-## Usage
+The page is published at `/posts/some-title/`. Optional front matter: `description`, `comments: false`, `toc: false`.
+Work in progress can live in `drafts/`, which is not built.
 
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
+## Layout
 
-## License
+| Path | What it is |
+| --- | --- |
+| `eleventy.config.js` | collections, filters, plugins (feed, syntax highlighting, TOC) |
+| `src/_data/site.js` | title, tagline, URL, social links, navigation, comments |
+| `src/_includes/` | layouts and partials (Nunjucks) |
+| `src/assets/` | CSS, JS and images, copied as-is to `/assets/` |
+| `src/posts/`, `src/pages/` | content |
+| `.github/workflows/deploy.yml` | build, link check and Pages deployment on push to `main` |
 
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+The "Updated" date on a post comes from git history, so CI checks out the full history.
+`src/sw.js` only exists to remove the service worker the old theme installed in visitors' browsers; it can be deleted in a few months.

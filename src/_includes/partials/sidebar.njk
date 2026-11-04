@@ -1,0 +1,24 @@
+<header class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a href="/" class="avatar" aria-label="{{ site.title }}"><img src="{{ site.avatar }}" alt="" width="96" height="96"></a>
+    <a href="/" class="site-title">{{ site.title }}</a>
+    <p class="site-tagline">{{ site.tagline }}</p>
+  </div>
+  <nav class="sidebar-nav" aria-label="Main">
+    <ul>
+      {%- for item in site.nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url or (item.url != "/" and page.url.startsWith(item.url)) %} aria-current="page"{% endif %}>{% icon item.icon %}<span>{{ item.title }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  <div class="sidebar-bottom">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">
+      <span class="when-dark">{% icon "sun" %}</span><span class="when-light">{% icon "moon" %}</span>
+    </button>
+    <span class="separator" aria-hidden="true"></span>
+    <a href="{{ site.social.github }}" aria-label="GitHub" rel="noopener" target="_blank">{% icon "github" %}</a>
+    <a href="{{ site.social.linkedin }}" aria-label="LinkedIn" rel="noopener" target="_blank">{% icon "linkedin" %}</a>
+    <a href="#" id="contact-email" aria-label="Email" data-user="{{ site.author.email.split('@')[0] }}" data-host="{{ site.author.email.split('@')[1] }}">{% icon "mail" %}</a>
+    <a href="/feed.xml" aria-label="RSS feed">{% icon "rss" %}</a>
+  </div>
+</header>

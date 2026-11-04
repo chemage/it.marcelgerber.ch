@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+---
+{# Shared by the Categories and Tags overview pages. Set `taxonomy` and `base` in the page front matter. #}
+<article class="page">
+  <h1 class="page-title">{{ title }}</h1>
+  {%- set entries = collections.categoryList if taxonomy == "categories" else collections.tagList %}
+  {%- for entry in entries %}
+  <section class="archive-year">
+    <h2><a href="{{ base }}{{ entry.name | slugify }}/">{{ entry.name }}</a> <small>{{ entry.posts.length }}</small></h2>
+    <ul class="archive-list">
+      {%- for post in entry.posts %}
+      <li><time datetime="{{ post.date | dateISO }}">{{ post.date | dateShort }}</time> <a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+</article>

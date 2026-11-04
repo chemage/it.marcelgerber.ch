@@ -1,0 +1,50 @@
+{%- set isHome = (page.url == "/") -%}
+{%- set pageTitle = title if (title and not isHome) else "" -%}
+{%- set fullTitle = (pageTitle + " | " + site.title) if pageTitle else (site.title + " | " + site.tagline) -%}
+{%- set metaDescription = description or site.description -%}
+{%- set canonical = site.url + page.url -%}
+<!doctype html>
+<html lang="{{ site.lang }}" data-theme="{{ site.themeMode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ fullTitle }}</title>
+  <meta name="description" content="{{ metaDescription | striptags | escape }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ pageTitle or site.title }}">
+  <meta property="og:description" content="{{ metaDescription | striptags | escape }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:type" content="{{ 'article' if layout == 'layouts/post.njk' else 'website' }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.avatar }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="google-site-verification" content="{{ site.googleSiteVerification }}">
+  <link rel="icon" href="/assets/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+  <script>
+    // Apply the saved or default theme before first paint to avoid a flash.
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/sidebar.njk" %}
+  <div class="wrapper">
+    <main id="main" class="main">
+      {{ content | safe }}
+    </main>
+    <footer class="footer">
+      <p>© {{ buildYear }} <a href="{{ site.social.github }}">{{ site.author.name }}</a>. Some rights reserved.</p>
+    </footer>
+  </div>
+  <script src="/assets/js/theme.js" defer></script>
+</body>
+</html>
