@@ -231,6 +231,12 @@ https://my.pcloud.com/#page=settings&settings=tab-apps
 1. In the __Linked Apps__ section you will find your application and you can see it's limited to a specific folder.
 ![Selection_022.png](/assets/img/blog/2023/10/12/Selection_022.png)
 
+1. Temporarily unencrypt rclone configuration file
+
+1. Copy configuration file to Synology NAS under `/docker/NAS1_rclone/config`.
+
+1. Encrypt configuration file again.
+
 ## References
 - [pCloud OAuth2 documentation](https://docs.pcloud.com/methods/oauth_2.0/)
 - [Python Pi pCloud package](https://pypi.org/project/pcloud/)
